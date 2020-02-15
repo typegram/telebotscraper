@@ -13,6 +13,7 @@ export const generateTypeScript = (
     schema: Method | Schema,
     template: Handlebars.TemplateDelegate
 ): TypeScriptGeneration => {
+    /* TODO: read these expansions from the HTML (they're represented as unordered lists) */
     const TYPE_EXPANSIONS: Record<string, string> = {
         CallbackGame: 'string',
     };
@@ -52,6 +53,7 @@ export const generateTypeScript = (
                 return acc;
             }
 
+            /* TODO: handle InputFile properly / create a dummy type for it */
             if (type === 'InputFile' || type === 'string') {
                 return acc;
             }
