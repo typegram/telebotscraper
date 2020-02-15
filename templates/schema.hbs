@@ -1,0 +1,19 @@
+/* Generated for Telegram {{version}} */
+
+import { Schema } from '../../utils';
+{{#each imports as |type|}}
+import {{type.name}} from '{{type.path}}';
+{{/each}}
+
+/**
+ {{{comment_lines 1 schema.description}}}
+ */
+export default interface {{schema.name}} extends Schema {
+  {{#each schema.fields as |field fieldKey|}}
+  /**
+   {{{comment_lines 3 field.description}}}
+   */
+  {{field.name}}{{#if field.optional}}?{{/if}}: {{render_type field.type}};
+
+  {{/each}}
+}

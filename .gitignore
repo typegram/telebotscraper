@@ -1,8 +1,14 @@
+# Node
 node_modules/
 
+# Yarn
 yarn-error.log*
 yarn-debug.log*
 
+# NPM
 npm-debug.log*
 package-lock.json
 npm-shrinkwrap.json
+
+# Dist files
+dist/

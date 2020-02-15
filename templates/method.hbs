@@ -1,0 +1,24 @@
+/* Generated for Telegram {{version}} */
+
+import { Method } from '../../utils';
+{{#each imports as |type|}}
+import {{type.name}} from '{{type.path}}';
+{{/each}}
+
+/**
+ {{{comment_lines 1 schema.description}}}
+ */
+type {{capitalize schema.name}} = Method<
+  '{{schema.name}}',
+  {
+    {{#each schema.fields as |field fieldKey|}}
+    /**
+    {{{comment_lines 5 field.description}}}
+    */
+    {{field.name}}{{#if field.optional}}?{{/if}}: {{render_type field.type}};
+    {{/each}}
+  },
+  {{render_type schema.returnType}}
+>;
+
+export default {{capitalize schema.name}};
