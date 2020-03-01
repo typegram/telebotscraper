@@ -48,7 +48,6 @@ export const generateTypeScript = (
         )
         .sort()
         .reduce<SchemaImport[]>((acc, type) => {
-            console.log(schema.name, type);
             if (acc.find(s => s.name === type)) {
                 return acc;
             }

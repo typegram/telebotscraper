@@ -23,7 +23,7 @@ export const toTypeScriptType = (fieldType: FieldType): string => {
         if (fieldType.value === 'string') {
             return 'string';
         }
-        fieldType.value as never; // assert we've covered all the cases
+        fieldType.value as void; // assert we've covered all the cases
         return 'never';
     }
     if (fieldType.type === 'array') {
@@ -37,6 +37,6 @@ export const toTypeScriptType = (fieldType: FieldType): string => {
 
         return `(${orType})`;
     }
-    fieldType as never; // assert we've covered all the cases
+    fieldType as void; // assert we've covered all the cases
     return 'never';
 };
